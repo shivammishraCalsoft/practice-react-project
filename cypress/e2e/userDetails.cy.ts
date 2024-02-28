@@ -1,8 +1,17 @@
 describe("userDetails tests", () => {
-  it("table Caption test", () => {
+  beforeEach(() => {
     cy.visit("/");
-    cy.get('[data-test="usersTableCaption"]').contains(
+  });
+  it("table Caption test", () => {
+    cy.getDataTest("usersTableCaption").contains(
       /Users Table with filter facility/i
     );
+  });
+  it("table header tests", () => {
+    cy.getDataTest("tableHeader1Input").should("not.exist");
+    cy.getDataTest("tableHeader1Img").click();
+    cy.getDataTest("tableHeader1Input").should("be.visible");
+    cy.getDataTest("tableHeader1Img").click();
+    cy.getDataTest("tableHeader1Input").should("not.exist");
   });
 });

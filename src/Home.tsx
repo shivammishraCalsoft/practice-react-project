@@ -110,10 +110,10 @@ const Home: React.FC = () => {
                                             {
                                                 headerData.map((heading, index) => {
                                                     return (
-                                                        <Th key={index}><Flex ><Text marginRight='15px'>{heading.toUpperCase()}</Text><img src={filter} alt="filter" height='10px' width='10px' className="pointer" onClick={() => filterClicked(index + 1)} /></Flex>
+                                                        <Th key={index}><Flex ><Text marginRight='15px'>{heading.toUpperCase()}</Text><img data-test={`tableHeader${index + 1}Img`} src={filter} alt="filter" height='10px' width='10px' className="pointer" onClick={() => filterClicked(index + 1)} /></Flex>
                                                             {
                                                                 filterColumn === index + 1 &&
-                                                                <Input value={search} variant='filled' type="text" placeholder="search..." size='sm' marginTop='10px' onChange={onChangeSearch} />
+                                                                <Input data-test={`tableHeader${index + 1}Input`} value={search} variant='filled' type="text" placeholder="search..." size='sm' marginTop='10px' onChange={onChangeSearch} />
                                                             }
                                                         </Th>
                                                     )
